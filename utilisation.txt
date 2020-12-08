@@ -1,0 +1,12 @@
+//Initialisation de la connexion 
+<?php
+	include ("connexionBD.php);
+       //Selection  exemple
+       $reqClient = $bdd-> prepare("SELECT * FROM client WHERE mail_client=? AND password_client=?" );
+       $reqClient->execute(array($loginConnect,$mdpConnect));
+
+     //Insertion exemple
+     $insertClient = $bdd->prepare("INSERT INTO client (nom_client, prenom_client, tel_client, mail_client, password_client,id_role) VALUES (?,?,?,?,?,1)");
+     $insertClient->execute(array($nom,$prenom,$tel,$mail,$mdp));
+
+?>
